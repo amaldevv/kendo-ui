@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Kendo UI - Getting Started</title>
+		<!-- Kendo UI css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+		<!-- Kendo UI default theme css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.min.css">
+
+		
+
+		<!-- Kendo UI Mobile css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.mobile.min.css">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Kendo UI -->
+		<script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+	</head>
+	<body>
+		<input id="acAutoComplete" />
+		<script type="text/javascript">
+		$(function(){
+
+			//step 1 - local data
+			//$("#acAutoComplete").kendoAutoComplete(["Item1", "Item2", "Item3","Select1","Select2"]);
+
+			//step 2 - remote data
+			$("#acAutoComplete").kendoAutoComplete({
+				minLength: 3,
+				dataTextField : "ContactName",
+				dataSource : new kendo.data.DataSource({
+					type : "odata",
+					transport:{
+						read : "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+					}
+				})
+			});
+
+			//step 3
+			/*var autoComplete = $("#acAutoComplete").data("kendoAutoComplete");
+			autoComplete.list.width(300);*/
+			
+		});
+		</script>
+	</body>
+</html>

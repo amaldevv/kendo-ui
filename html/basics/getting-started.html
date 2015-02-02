@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Kendo UI - Getting Started</title>
+
+		<!-- Step 1-->
+		<!-- Kendo UI css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+		<!-- Kendo UI default theme css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.min.css">
+
+		<!-- Dataviz css-->
+		
+		<!--<link rel="stylesheet" type="text/css" href="/styles/kendo.dataviz.min.css">-->
+
+		<!-- Kendo UI Mobile css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.mobile.min.css">
+
+		<!-- Step 2-->
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Kendo UI -->
+		<script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+	</head>
+	<body>
+		<!-- Step 3-->
+		<input id="dtPicker" />
+		<script type="text/javascript">
+		$(function(){
+			$("#dtPicker").kendoDatePicker();
+		});
+		</script>
+	</body>
+</html>
