@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title> Kendo UI - Getting Started	</title>
+		<!-- UI CSS -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+		<!-- UI CSS -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.min.css">
+
+		
+		<!-- DataViz CSS -->
+		<!--<link rel="stylesheet" type="text/css" href="/styles/kendo.dataviz.min.css"> -->
+		<!-- UI Mobile CSS -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.mobile.min.css">
+
+
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Kendo UI -->
+		<script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+	</head>
+	<nav></nav>
+	<body>
+		<div >
+			<div><span>Select a color : &nbsp;&nbsp;</span></div>
+			<div><input id="clPickr" type="color" /></div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//step 1
+				//$("#clPickr").kendoColorPicker();
+
+				//step 2 - simple picker
+				//$("#clPickr").kendoColorPicker({palette : "basic"});
+
+				//step 3 - web safe
+				$("#clPickr").kendoColorPicker({palette : "websafe"});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Kendo UI - Getting Started</title>
+		<!-- Kendo UI css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+		<!-- Kendo UI default theme css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.min.css">
+
+		<!-- Dataviz css-->
+		
+		<!--<link rel="stylesheet" type="text/css" href="/styles/kendo.dataviz.min.css">-->
+
+		<!-- Kendo UI Mobile css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.mobile.min.css">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Kendo UI -->
+		<script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<span>Select a product : </span>
+			<input id="cmbProduct" /> 
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//step 1 - local data source
+				$("#cmbProduct").kendoComboBox({
+					dataTextField : "Name",
+					dataValueField : "Code",
+					dataSource : [{Name :"Red", Code :"R"},{Name:"Green", Code :"G"},{Name:"Yellow", Code :"Y"}]
+				});
+
+				//step 2 - remote data source
+				/*$("#cmbProduct").kendoComboBox({
+					index : 0,
+					dataTextField : "ProductName",
+					dataValueField : "ProductID",
+					filter : "contains",
+					dataSource : {
+						transport :{
+							read:{
+								dataType : "jsonp",
+								url : "http://demos.telerik.com/kendo-ui/service/Products"
+							}
+						}
+					}
+				});*/
+			});
+		</script>
+	</body>
+</html>
