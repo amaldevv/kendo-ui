@@ -23,6 +23,9 @@
 			<span>Select a product : </span>
 			<input id="cmbProduct" /> 
 		</div>
+		<script id="cmbTemplate" type="text/x-kendo-template">
+			Contact Name : #:data.ContactName#, <br/> Customer ID : #:data.CustomerID#
+		</script>
 		<script type="text/javascript">
 			$(function(){
 				//step 1 - local data source
@@ -46,7 +49,26 @@
 							}
 						}
 					}
+				});*/	
+				//step 3
+				/*$("#cmbProduct").kendoComboBox({
+					template : $("#cmbTemplate").html(),
+					dataTextField : "ContactName",
+					dataValueField : "CustomerID",
+					dataSource : {
+						transport :{
+							read  :{
+								dataType : "jsonp",
+								url: "http://demos.telerik.com/kendo-ui/service/Customers"
+							}
+						}
+					}
 				});*/
+
+				var cmbCtrl = $("#cmbProduct").data("kendoComboBox");
+				cmbCtrl.list.width(250);
+
+
 			});
 		</script>
 	</body>
