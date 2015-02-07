@@ -1,0 +1,105 @@
+
+
+<html >
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+    <!-- Kendo UI default theme css -->
+    <link rel="stylesheet" type="text/css" href="/styles/kendo.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap-combined.min.css">
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet"> -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- Kendo UI -->
+    <script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+    <script type="text/javascript" src="scripts/product-search.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/moment/moment.js"></script>
+    <style type="text/css">
+      body {
+      font-size: 14px;
+      }
+
+      .k-datepicker {
+        vertical-align: middle;
+      }
+      .results {
+      margin: 10px 0;
+      padding: 10px;
+      }
+      .results .k-widget {
+      border-style: none;
+      }
+      .result {
+      margin: 20px;
+      }
+      .result &gt; :first-child {
+      float: left;
+      margin-right: 10px;
+      }
+      .poster {
+      width: 100px;
+      height: 149px;
+      }
+      .details {
+      margin-left: 110px;
+      }
+      .title {
+      font-weight: bold;
+      font-size: 1.2em;
+      }
+      .logo {
+      height: 25px;
+      width: 88px;
+      margin-top: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand">
+          <img class="logo" src="http://images.rottentomatoescdn.com/images/trademark/flixster-logo.png" /> 
+          Sample Store Front
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="http://www.rottentomatoes.com">Rotten Tomatoes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container-fluid" >
+        <div class="col-lg-15 content">
+          <ul id="pnlBarSearch" >
+            <li>
+              Search
+              <ul class="row">
+               <li class="col-lg-3" style="padding-top : 10px;padding-bottom : 10px">
+                  <span >Category&nbsp;&nbsp;&nbsp;</span><input id="drpCategory" style="width:200px" /><br>
+                  <span >Products&nbsp;&nbsp;&nbsp;</span><input id="drpProducts" style="width:200px" />
+                </li>
+                <li class="col-lg-3" style="padding-top : 10px;padding-bottom : 10px">
+                  <span style="padding-right:15px">Order From</span><input id="dtOrderFrom" style="width:150px;" /><br>
+                  <span style="padding-right:32px">Order To</span><input id="dtOrderTo" style="width:150px;"/>
+                </li>
+              </ul>
+            </li>
+            
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>
+
