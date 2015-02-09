@@ -19,8 +19,11 @@
 		<input id="dtDOJ" />
 		<script type="text/javascript">
 			$(function(){
+
+				//using $ selector to select the element and init is handled by kendo
 				kendo.init($("#dtDOB"));
 
+				//$ selector selects the element and apply the kendo function which is referenced from kendo js file
 				$("#dtDOJ").kendoDatePicker();
 			});
 		</script>
