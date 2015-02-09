@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Kendo UI - Getting Started</title>
+		<!-- Kendo UI css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+		<!-- Kendo UI default theme css -->
+		<link rel="stylesheet" type="text/css" href="/styles/kendo.default.min.css">
+
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<!-- Kendo UI -->
+		<script type="text/javascript" src="/js/kendo.ui.core.min.js"></script>
+	</head>
+	<body>
+		<div>
+			
+			<div>
+				<button id="btnSend" style="width:120px;height:30px">Send</button>
+				<button id="btnClear" style="width:120px;height:30px">Clear</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$("button").kendoButton().css("background-color", "gray");
+
+				var btnSend = $("#btnSend").data("kendoButton");
+				btnSend.bind("click", function(e) {
+				    alert("Clicked Send button");
+				}); 
+
+				var btnClear = $("#btnClear").data("kendoButton");
+				btnClear.bind("click", function(e) {
+				    alert("Clicked Clear button");
+				}); 
+				
+			});
+		</script>
+	</body>
+</html>
