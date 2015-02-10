@@ -56,25 +56,24 @@
 			<div id="sidebar-wrapper" class="col-md-2">
 				<div id="sidebar">
 					<ul class="nav list-group">
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Auto Complete</a></a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Calendar</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Combo Box</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Date Picker</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>DateTime Picker</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>DropDown List</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Editor</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Grid</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>List View</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Menu</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Numeric Textbox</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Panel Bar</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Slider</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Splitter</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Tab Strip</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Time Picker</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Tree View</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Upload</a></li>
-						<li><a class="list-group-item" href="#"><i class="icon-home icon-1x"></i>Window</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Auto Complete</a></a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Drop Down</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Combo Box</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Date Picker</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>DateTime Picker</a></li>
+
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Button</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Masked Textbox</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Multi Select</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Color Picker</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Numeric Textbox</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Slider</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Editor</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>List View</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Calendar</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Grid</a></li>
+						<li><a class="list-group-item" href="#"><i class="icon-star icon-1x"></i>Tab Strip</a></li>
+						
 					</ul>
 				</div>
 			</div>
@@ -88,91 +87,201 @@
 
 			<div class="row" style="padding-left:15px">
 				<div class="col-md-4">
-					<span class="text-left">Auto Complete </span>
-					<input class="input-large" id="atComplete" />
-				</div>
-				<div class="col-md-4" >
-					
-					<div  id="ctCalendar" ></div>
+					<div class="col-md-3"><span class="text-left">Auto Complete </span></div>
+					<div class="col-md-3"><input class="input-large" id="atComplete" /></div>
 				</div>
 				<div class="col-md-4">
-					<span class="text-left">Combo </span>
-					<input class="input-large" id="cmbProduct" />
+					<div class="col-md-3"><span class="text-left">Drop Down </span></div>
+					<div class="col-md-3"><input class="input-large" id="drpDropDown" /></div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Combo </span></div>
+					<div class="col-md-3"><input class="input-large" id="cmbProduct" /></div>
 				</div>
 
 			</div>
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Date </span></div>
+					<div class="col-md-3"><input class="input-large" id="dtDatePicker" /></div>
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-3"><span class="text-left">Date Time </span></div>
+					<div class="col-md-3"><input class="input-large" id="dtDateTimePicker" /></div>
+				</div>
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Time Picker</span></div>
+					<div class="col-md-3"><input class="input-large" id="dtTimePicker" /></div>
+				</div>
+
+			</div>
+			
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Button </span></div>
+					<div class="col-md-3"><button id="btnSend" style="width:120px;height:30px">Send</button></div>
+					
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-3">
+						<span class="text-left">Masked TextBox</span> 
+					</div>
+					<div class="col-md-3">
+						<input id="msTextBox" />
+					</div>
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-3"><span class="text-left"  style="vertical-align:top">Multi Select</span></div>
+					<div class="col-md-6"><select id="multiselect">
+						    <option>Item 1</option>
+						    <option>Item 2</option>
+						    <option>Item 3</option>
+						</select>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Color Picker </span></div>
+					<div class="col-md-3"><input id="clPickr" type="color" /></div>
+					
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-3">
+						<span class="text-left">Numeric Textbox </span> 
+					</div>
+					<div class="col-md-3">
+						<input class="input-large" id="nmNumericTextBox" />
+					</div>
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-3"><span class="text-left"  style="vertical-align:top">Slider</span></div>
+					<div class="col-md-3"><input id="slider" /></div>
+				</div>
+
+
+			</div>
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-4">
+					<div class="col-md-3"><span class="text-left">Editor </span></div>
+					<div class="col-md-12"><textarea  class="input-large" id="editor" rows="10" cols="30"></textarea></div>
+
+				</div>
+				<div class="col-md-4" >
+				<div class="col-md-5"><span class="text-left">List View </span></div>
+					<div class="col-md-8"><ul id="lstContacts"></ul></div>
+				</div>
+				<div class="col-md-4" >
+					<div class="col-md-5"><span class="text-left"  style="vertical-align:top">Calendar</span></div>
+					<div class="col-md-8"><div  id="ctCalendar" ></div></div>
+				</div>
+			</div>
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-12">
+					<div id="grdDetails"></div>
+				</div>
+			</div>
+			<div class="row" style="height:15px">&nbsp;</div>
+			<div class="row" style="padding-left:15px">
+				<div class="col-md-12" style="height:50px">
+					<div id="tbStrip" >
+					    <ul>
+						        <li>First tab</li>
+						        <li>Second tab</li>
+					    </ul>
+					    <div>Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. 
+							Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo. Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. 
+							Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. 
+							Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. 
+							Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo</div>
+					    <div>Nullam sapien massa, aliquam in cursus ut, ullamcorper in tortor. 
+							Aliquam mauris arcu, tristique a lobortis vitae, condimentum feugiat justo</div>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="row" style="height:50px">&nbsp;</div>
 		</div>
 	</div>
-</div>
-<style type="text/css">
-	body {
-		padding-top: 50px;
-		overflow: hidden;
-	}
-	#wrapper {
-		min-height: 100%;
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		top: 0px;
-		left: 0;
-		display: inline-block;
-	}
-	#main-wrapper {
-		height: 100%;
-
-		overflow-y: auto;
-		padding: 20px 0 0px 0;
-	}
-	#main {
-		position: relative;
-		height: 100%;
-		overflow-y: auto;
-		padding: 0 15px;
-	}
-	#sidebar-wrapper {
-		height: 100%;
-		padding: 50px 0 0px 0;
-		position: fixed;
-		border-right: 1px solid gray;
-	}
-	#sidebar {
-		position: relative;
-		height: 100%;
-		overflow-y: auto;
-	}
-	#sidebar .list-group-item {
-		border-radius: 0;
-		border-left: 0;
-		border-right: 0;
-		border-top: 0;
-	}
-	.k-nav-today{
-		height:auto !important;
-	}
-	@media (max-width: 992px) {
+	<style type="text/css">
 		body {
-			padding-top: 0px;
+			padding-top: 50px;
+			overflow: hidden;
 		}
-	}
-	@media (min-width: 992px) {
+		#wrapper {
+			min-height: 100%;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0;
+			display: inline-block;
+		}
 		#main-wrapper {
-			float:right;
+			height: 100%;
+
+			overflow-y: auto;
+			padding: 20px 0 0px 0;
 		}
-	}
-	@media (max-width: 992px) {
-		#main-wrapper {
-			padding-top: 0px;
+		#main {
+			position: relative;
+			height: 100%;
+			overflow-y: auto;
+			padding: 0 15px;
 		}
-	}
-	@media (max-width: 992px) {
 		#sidebar-wrapper {
-			position: static;
-			height:auto;
-			max-height: 300px;
-			border-right:0;
+			height: 100%;
+			padding: 50px 0 0px 0;
+			position: fixed;
+			border-right: 1px solid gray;
 		}
-	}
-</style>
+		#sidebar {
+			position: relative;
+			height: 100%;
+			overflow-y: auto;
+		}
+		#sidebar .list-group-item {
+			border-radius: 0;
+			border-left: 0;
+			border-right: 0;
+			border-top: 0;
+		}
+		.k-nav-today{
+			height:auto !important;
+		}
+		@media (max-width: 992px) {
+			body {
+				padding-top: 0px;
+			}
+		}
+		@media (min-width: 992px) {
+			#main-wrapper {
+				float:right;
+			}
+		}
+		@media (max-width: 992px) {
+			#main-wrapper {
+				padding-top: 0px;
+			}
+		}
+		@media (max-width: 992px) {
+			#sidebar-wrapper {
+				position: static;
+				height:auto;
+				max-height: 300px;
+				border-right:0;
+			}
+		}
+	</style>
 </body>
 </html>
