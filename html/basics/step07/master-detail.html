@@ -1,0 +1,99 @@
+
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Master Detail Grid</title>
+
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css">
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/jszip.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script></head>
+    <body>
+      <div id="example">
+            <div id="grid"></div>
+
+            <script>
+                $(document).ready(function() {
+                    var element = $("#grid").kendoGrid({
+                        dataSource: {
+                            type: "odata",
+                            transport: {
+                                read: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Employees"
+                            },
+                            pageSize: 6,
+                            serverPaging: true,
+                            serverSorting: true
+                        },
+                        height: 600,
+                        sortable: true,
+                        pageable: true,
+                        detailInit: detailInit,
+                        dataBound: function() {
+                            this.expandRow(this.tbody.find("tr.k-master-row").first());
+                        },
+                        columns: [
+                            {
+                                field: "FirstName",
+                                title: "First Name",
+                                width: "110px"
+                            },
+                            {
+                                field: "LastName",
+                                title: "Last Name",
+                                width: "110px"
+                            },
+                            {
+                                field: "Country",
+                                width: "110px"
+                            },
+                            {
+                                field: "City",
+                                width: "110px"
+                            },
+                            {
+                                field: "Title"
+                            }
+                        ]
+                    });
+                });
+
+                function detailInit(e) {
+                    debugger;
+                    $("<div/>").appendTo(e.detailCell).kendoGrid({
+                        dataSource: {
+                            type: "odata",
+                            transport: {
+                                read: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Orders"
+                            },
+                            serverPaging: true,
+                            serverSorting: true,
+                            serverFiltering: true,
+                            pageSize: 10,
+                            filter: { field: "EmployeeID", operator: "eq", value: e.data.EmployeeID }
+                        },
+                        scrollable: false,
+                        sortable: true,
+                        pageable: true,
+                        columns: [
+                            { field: "OrderID", width: "110px" },
+                            { field: "ShipCountry", title:"Ship Country", width: "110px" },
+                            { field: "ShipAddress", title:"Ship Address" },
+                            { field: "ShipName", title: "Ship Name", width: "300px" }
+                        ]
+                    });
+                }
+            </script>
+        </div>
+</body>
+
+</html>
+

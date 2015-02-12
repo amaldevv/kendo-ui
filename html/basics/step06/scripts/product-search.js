@@ -11,10 +11,10 @@ function GetSearchParams()
 
 	//var url = "http://services.odata.org/V3/Northwind/Northwind.svc/Orders?expand=Order_Details";
 	var searchString = "";
-	if(category !== undefined & category !== "")
-		searchString += " CategoryID eq " + category + " and ";
+	/*if(category !== undefined & category !== "")
+		searchString += " Product/CategoryID eq " + category + " and ";*/
 	if(product !== undefined & product !== "")
-		searchString += "  ProductID eq " + product + " and ";
+		searchString += "  Order_Details/any(o:o/ProductID eq " + product + ") and ";
 	if(OrderFrom !== undefined & OrderFrom !== "")
 		searchString += "OrderDate ge DateTime'" + OrderFrom + "'" + " and ";
 	if(OrderTo !== undefined & OrderFrom !== "")
@@ -187,41 +187,7 @@ $(function(){
         serverSorting: true
 	});
     $("#gdOrderDetails").kendoGrid({
-	        dataSource: {
-	        type: "odata",
-	        transport: {
-	            read: {
-	                url: "http://services.odata.org/V3/Northwind/Northwind.svc/Orders",
-	                data : {
-	                	$expand :  "Order_Details",
-	                	$filter : GetSearchParams()
-	                },
-	                dataType: "json"
-	            },
-	        },
-	        schema: {
-	            data: function (data) {
-	                return data["value"];
-	            },
-	            total: function (data) {
-	                return data["odata.count"];
-	            },
-	            model: {
-	                fields: {
-	                    OrderID: { type: "number" },
-	                    CustomerID: { type: "string" },
-	                  //  Order_Details [ ProductID:{type :"number"} ],
-	                    ShipName: { type: "string" },
-	                    OrderDate: { type: "date" },
-	                    ShippedDate: { type: "date" }
-	                }
-	            }
-	        },
-	        pageSize: 10,
-	        serverPaging: true,
-	        serverFiltering: true,
-	        serverSorting: true
-		},
+	        dataSource: dataSource,
         filterable: true,
         sortable: true,
         pageable: true,
@@ -270,23 +236,27 @@ $(function(){
                 }
             }
         },
+        change : function(data)
+        {
+        	if(ds._data.length ==0)
+			{
+				
+		    	var notificationWidget = $("#notMessage").data("kendoNotification");
+
+		    	
+		    	notificationWidget.show("No Records Found","error");	
+		    	grid.dataSource.data([]);
+			}
+			else
+				grid.setDataSource(ds);
+        },
         pageSize: 10,
         serverPaging: true,
         serverFiltering: true,
         serverSorting: true
 	});
-	ds.fetch();
-	if(ds.data().length ==0)
-	{
-		
-    	var notificationWidget = $("#notMessage").data("kendoNotification");
-
-    	
-    	notificationWidget.show("No Records Found","error");	
-    	grid.dataSource.data([]);
-	}
-	else
-		grid.setDataSource(ds);
+	ds.read();
+	
 	});
 
 
