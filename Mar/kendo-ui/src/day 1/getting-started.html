@@ -1,0 +1,51 @@
+﻿<html>
+<head>
+    <title>Getting Started With Kendo UI</title>
+
+    <!--CSS Files-->
+
+    <!--Kendo UI common styles-->
+    <link href="../css/kendo.common.min.css" rel="stylesheet" />
+    <!--Kendo UI default theme-->
+    <link href="../css/kendo.default.min.css" rel="stylesheet" />
+    
+    <!-- JS imports -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <!--Kendo Scripts-->
+    <!--Kendo UI core javascript-->
+    <script type="text/javascript" src="../js/kendo.ui.core.min.js"></script>
+    
+
+</head>
+<body>
+
+    <div>
+        <div>
+            <span>jQuery Syntax</span>
+            
+        </div>
+        <div>
+            <input type="date" id="jQDatePicker" />
+        </div>
+        <div>
+            <span>HTML5 Syntax</span>
+
+        </div>
+        <div>
+            <input type="date" id="hTDatePicker" data-role="datepicker" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#jQDatePicker").kendoDatePicker();
+
+            kendo.init($("#hTDatePicker"));
+
+        });
+    </script>
+
+</body>
+</html>
