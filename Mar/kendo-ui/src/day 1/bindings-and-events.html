@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+    <title>Binding Kendo UI Widgets & Events</title>
+
+    <!--CSS Files-->
+
+    <!--Kendo UI common styles-->
+    <link href="../css/kendo.common.min.css" rel="stylesheet" />
+    <!--Kendo UI default theme-->
+    <link href="../css/kendo.default.min.css" rel="stylesheet" />
+    
+    <!-- JS imports -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <!--Kendo Scripts-->
+    <!--Kendo UI core javascript-->
+    <script type="text/javascript" src="../js/kendo.ui.core.min.js"></script>
+    
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="../css/custom.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span>jQuery Syntax</span>
+                <div class="row voffset2">
+                    <div class="col-md-4"><span>Choose a date</span></div>
+                    <div class="col-md-4"><input type="date" id="jQDatePicker" /></div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span>HTML5 Syntax</span>
+                <div class="row voffset2">
+
+                    <div class="col-md-4"><span>Choose a date</span></div>
+                    <div class="col-md-4"><input type="date" id="hTDatePicker" data-role="datepicker" /></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#jQDatePicker").kendoDatePicker();
+
+            var datePicker = $("#jQDatePicker").data("kendoDatePicker");
+
+            //datePicker.start("year");
+            var date = new Date().getDate();
+            datePicker.setOptions({
+                start: "year",
+                format: "MMMM yyyy",
+                value: date
+            });
+
+            kendo.init($("#hTDatePicker"));
+
+        });
+    </script>
+
+</body>
+</html>
