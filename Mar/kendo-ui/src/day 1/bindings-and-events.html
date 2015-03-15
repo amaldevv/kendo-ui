@@ -36,21 +36,31 @@
         </div>
         <div class="row text-center">
             <div class="col-md-4">
-                <span>jQuery Syntax</span>
+                
                 <div class="row voffset2">
                     <div class="col-md-4"><span>Choose a date</span></div>
                     <div class="col-md-4"><input type="date" id="jQDatePicker" /></div>
 
                 </div>
             </div>
-            <div class="col-md-4">
-                <span>HTML5 Syntax</span>
+            <div class="col-md-2">
+                
                 <div class="row voffset2">
 
-                    <div class="col-md-4"><span>Choose a date</span></div>
-                    <div class="col-md-4"><input type="date" id="hTDatePicker" data-role="datepicker" /></div>
+                    <div class="col-md-12"><a onclick="UnBindEvent()" >Unbind Close Event </a></div>
+
                 </div>
             </div>
+
+            <div class="col-md-4 text-left">
+                <span>Output</span>
+                <div class="row voffset2">
+
+                    <div class="col-md-8"><span id="spResult"></span></div>
+                    
+                </div>
+            </div>
+
         </div>
         
     </div>
@@ -60,21 +70,67 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            /*
+
+            //Step 1
+
             $("#jQDatePicker").kendoDatePicker();
 
-            var datePicker = $("#jQDatePicker").data("kendoDatePicker");
+            //using jquery data method
+            //var datePicker = $("#jQDatePicker").data("kendoDatePicker");
 
-            //datePicker.start("year");
-            var date = new Date().getDate();
+            //using kendo's getKendoDatePicker() method
+            var datePicker = $("#jQDatePicker").getKendoDatePicker();
+           
+                       
             datePicker.setOptions({
                 start: "year",
                 format: "MMMM yyyy",
-                value: date
+                
+            });
+            */
+
+            //Step 2 - Event binding
+            //bind event during initialization
+            $("#jQDatePicker").kendoDatePicker(
+                {
+                    start: "decade",
+                    format: "dd-MMM-yyyy",
+                    change : DatePickerOnChange
+                });
+            
+            
+            // bind event after initalization
+            var datePicker = $("#jQDatePicker").data("kendoDatePicker");
+
+            datePicker.bind("close", function () {
+                var resSpan = $("#spResult");
+                resSpan.append("Closed DatePicker<br>");
             });
 
-            kendo.init($("#hTDatePicker"));
+            //function with arguments
+            datePicker.bind("open", function (e) {
+                var resSpan = $("#spResult");
+                
+                resSpan.append(e.sender.element[0].id + " opened<br>");
+            });
 
         });
+
+        function DatePickerOnChange()
+        {
+            //debugger;
+            var resSpan = $("#spResult");
+            resSpan.append("Changed date<br>");
+        }
+
+        function UnBindEvent(e)
+        {
+            var datePicker = $("#jQDatePicker").data("kendoDatePicker");
+
+            datePicker.unbind("close");
+
+        }
     </script>
 
 </body>
