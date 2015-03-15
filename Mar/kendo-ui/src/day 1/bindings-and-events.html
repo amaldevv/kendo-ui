@@ -70,11 +70,20 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            /*
+          
 
             //Step 1
 
-            $("#jQDatePicker").kendoDatePicker();
+             /*$("#jQDatePicker").kendoDatePicker(
+                {
+                    start: "decade",
+                    format: "dd-MMM-yyyy"
+                    
+                });
+            */
+            
+
+              $("#jQDatePicker").kendoDatePicker();
 
             //using jquery data method
             //var datePicker = $("#jQDatePicker").data("kendoDatePicker");
@@ -88,8 +97,8 @@
                 format: "MMMM yyyy",
                 
             });
-            */
-
+          
+            /*
             //Step 2 - Event binding
             //bind event during initialization
             $("#jQDatePicker").kendoDatePicker(
@@ -114,7 +123,7 @@
                 
                 resSpan.append(e.sender.element[0].id + " opened<br>");
             });
-
+              */
         });
 
         function DatePickerOnChange()
