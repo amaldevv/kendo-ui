@@ -83,39 +83,39 @@
             */
             
 
-              $("#jQDatePicker").kendoDatePicker();
+             // $("#jQDatePicker").kendoDatePicker();
 
             //using jquery data method
             //var datePicker = $("#jQDatePicker").data("kendoDatePicker");
 
             //using kendo's getKendoDatePicker() method
-            var datePicker = $("#jQDatePicker").getKendoDatePicker();
+            //var datePicker = $("#jQDatePicker").getKendoDatePicker();
            
                        
-            datePicker.setOptions({
+           /* datePicker.setOptions({
                 start: "year",
                 format: "MMMM yyyy",
                 
             });
           
-            /*
+            */
             //Step 2 - Event binding
             //bind event during initialization
-            $("#jQDatePicker").kendoDatePicker(
+            /*$("#jQDatePicker").kendoDatePicker(
                 {
                     start: "decade",
                     format: "dd-MMM-yyyy",
                     change : DatePickerOnChange
                 });
-            
+            */
             
             // bind event after initalization
             var datePicker = $("#jQDatePicker").data("kendoDatePicker");
 
-            datePicker.bind("close", function () {
+            /*datePicker.bind("close", function () {
                 var resSpan = $("#spResult");
                 resSpan.append("Closed DatePicker<br>");
-            });
+            });*/
 
             //function with arguments
             datePicker.bind("open", function (e) {
@@ -123,7 +123,7 @@
                 
                 resSpan.append(e.sender.element[0].id + " opened<br>");
             });
-              */
+              
         });
 
         function DatePickerOnChange()
@@ -144,3 +144,6 @@
 
 </body>
 </html>
+
+
+
