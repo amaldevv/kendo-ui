@@ -94,20 +94,20 @@
                           '<div class="col-md-4 "><span class="k-state-default">#: data.CategoryName #</span></div></div>',
 
                 dataSource: {
-                    type: "jsonp",
+                    type: "odata",
                     serverFiltering: true,
                     transport: {
-                        // async: true,
+                         async: true,
                         dataType:"json",
-                        read: "http://localhost:58605/api/Category/GetCategories"
+                        read: "http://services.techrepository.in/Northwind.svc/Categories"
                     },
                     schema: {
                         data: function (data) {
-                            return data; // <-- The result is just the data, it doesn't need to be unpacked.
+                            return data["value"];
                         },
                         total: function (data) {
-                            return data.length; // <-- The total items count is the data length, there is no .Count to unpack.
-                        }
+                            return data["odata.count"];
+                        },
                     }
                 }
             }).data("kendoDatePicker");

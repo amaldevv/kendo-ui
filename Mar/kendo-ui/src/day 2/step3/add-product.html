@@ -1,0 +1,163 @@
+﻿<html>
+<head>
+    <title>Binding Kendo UI Widgets & Events</title>
+
+    <!--CSS Files-->
+    <!--Kendo UI common styles-->
+    <link href="../../css/kendo.common.min.css" rel="stylesheet" />
+    <!--Kendo UI default theme-->
+    <link href="../../css/kendo.metro.min.css" rel="stylesheet" />
+
+    <!-- JS imports -->
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+
+    <!--Kendo Scripts-->
+    <!--Kendo UI core javascript-->
+    <script type="text/javascript" src="../../js/kendo.ui.core.min.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+
+    <!-- Optional theme -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="../../css/custom.css" />
+
+</head>
+<body>
+    <form id="frmAddProduct">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Sample Store</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li class="active"><a href="add-product.html">Add Product</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 voffset5"></div>
+            </div>
+            <div class="row voffset5"></div>
+            <div class="row">
+                <div class="col-md-2"><span>Category</span> </div>
+                <div class="col-md-4"><input type="text" id="drpCategory" style="width:100%" /></div>
+            </div>
+            <div class="row voffset2"></div>
+            <div class="row">
+                <div class="col-md-2"><span>Product Code</span></div>
+                <div class="col-md-4">
+                    <!--step 1-->
+                    <input type="text" id="txtProductCode" required style="width:100%" class="k-textbox" />
+                    <!--Step 2-->
+                    <!--<input type="text" id="txtProductCode" name="txtProductCode" placeholder="Enter Product Code" required validationmessage="Please enter Product Code" style="width:100%" class="k-textbox" />-->
+                </div>
+            </div>
+            <div class="row voffset2"></div>
+            <div class="row">
+                <div class="col-md-2"><span>Product Name</span></div>
+                <div class="col-md-4">
+                    <!--Step 1-->
+                    <input type="text" id="txtProductName" required style="width:100%" class="k-textbox" />
+                    <!--Step 3-->
+                    <!--<input type="text" id="txtProductName" name="txtProductName"  placeholder="Enter Product Name" required validationmessage="Please enter Product Name" style="width:100%" class="k-textbox" />
+                    <span class="k-invalid-msg" data-for="txtProductName"></span>-->
+                    <!--Step 4-->
+                    <!--<input type="text" id="txtProductName" name="txtProductName" placeholder="Enter Product Name" style="width:100%" class="k-textbox" />-->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="col-md-4"><button id="btnAdd" name="btnAdd" class="k-button">Add Product</button></div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(function () {
+
+            $("#drpCategory").kendoDropDownList({
+                optionLabel: "Select Category",
+                dataTextField: "CategoryName",
+                dataValueField: "CategoryID",
+
+                headerTemplate: '<div class="row"> ' +
+                        '<div class="col-md-1 "><span class="k-header text-left text-bold" style="width:20px" >Code</span></div>' +
+                        '<div class="col-md-3 "><span class="k-header text-left text-bold">Name</span></div>' +
+                    '</div></div>',
+                valueTemplate: '<div class="row"><div class="col-md-4 "><span>#:data.CategoryName#</span></div>',
+                template: '<div class="row"><div class="col-md-1 "><span class="k-state-default">#:data.CategoryID#</span></div>' +
+                          '<div class="col-md-4 "><span class="k-state-default">#: data.CategoryName #</span></div></div>',
+
+                dataSource: {
+                    type: "odata",
+                    serverFiltering: true,
+                    transport: {
+                        async: true,
+                        dataType: "json",
+                        read: "http://services.techrepository.in/Northwind.svc/Categories"
+                    },
+                    schema: {
+                        data: function (data) {
+                            return data["value"];
+                        },
+                        total: function (data) {
+                            return data["odata.count"];
+                        },
+                    }
+                }
+            }).data("kendoDatePicker");
+
+        });
+        //step 1
+        //$("#frmAddProduct").kendoValidator();
+
+        //step 4
+        //add validation messages
+        //$("#frmAddProduct").kendoValidator({
+        //    rules: {
+        //        CustomRequired: function (input) {
+        //            if (input.is("[name=txtProductName]")) {
+        //                return input.val() !== "";
+        //            }
+        //            return true;
+        //        },
+        //    },
+        //    messages: {
+        //        CustomRequired: "Please enter product name"
+        //    }
+        //});
+        
+        //step 1
+        //add validators
+        var validatorCtrl = $("#frmAddProduct").data("kendoValidator");
+
+        // save click
+        $("#btnAdd").on("click", function () {
+            
+            if (validatorCtrl.validate()) {
+                alert("Success");
+            }
+        });
+
+        
+    </script>
+    <style>
+    </style>
+</body>
+</html>
