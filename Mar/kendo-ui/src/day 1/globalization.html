@@ -1,0 +1,112 @@
+﻿<html>
+<head>
+    <title>Globalization</title>
+
+    <!--CSS Files-->
+    <!--Kendo UI common styles-->
+    <link href="../css/kendo.common.min.css" rel="stylesheet" />
+    <!--Kendo UI default theme-->
+    <link href="../css/kendo.default.min.css" rel="stylesheet" />
+
+    <!-- JS imports -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <!--Kendo Scripts-->
+    <!--Kendo UI core javascript-->
+    <script type="text/javascript" src="../js/kendo.ui.core.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="../css/custom.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/culture/kendo.culture.en-US.min.js"></script>
+    <script src="../js/culture/kendo.culture.en-GB.min.js"></script>
+    <script src="../js/culture/kendo.culture.de-DE.min.js"></script>
+    <script src="../js/culture/kendo.culture.fr-FR.min.js"></script>
+    <script src="../js/culture/kendo.culture.bg-BG.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"></div>
+        </div>
+        <!--<div class="row text-left">
+            <div class="col-md-4"><span>Choose Culture</span></div>
+            <div class="col-md-4"><span><input id="drpCulture" value="en-US" /></span></div>
+        </div>-->
+        <div class="row voffset2">
+            <div class="col-md-2"><span>Choose a date</span></div>
+            <div class="col-md-2"><input type="date" id="txtDate" /></div>
+            <div class="col-md-2"><span>Time</span></div>
+            <div class="col-md-2"><input id="txtTime" /></div>
+        </div>
+        <div class="row voffset2">
+            <div class="col-md-2"><span>Discount</span></div>
+            <div class="col-md-2"><input type="number" id="txtDiscount" /></div>
+            <div class="col-md-2"><span>Amount</span></div>
+            <div class="col-md-2"><input type="number" id="txtAmount" /></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+
+            var dateCtrl = new kendo.ui.DatePicker($("#txtDate"));
+
+
+            var timeCtrl = new kendo.ui.TimePicker($("#txtTime"));
+
+
+            var amount = new kendo.ui.NumericTextBox($("#txtAmount"), { format: "c" });
+            var discount = new kendo.ui.NumericTextBox($("#txtDiscount"), { format: "p" });
+
+            //step 1
+            //set current to the "en-GB" culture script
+            //kendo.culture("en-GB");
+
+            //step 2
+            /*$("#drpCulture").kendoDropDownList({
+                change: changeCulture,
+                dataTextField: "text",
+                dataValueField: "value",
+                dataSource: [
+                    { text: "bg-BG", value: "bg-BG" },
+                    { text: "de-DE", value: "de-DE" },
+                    { text: "en-US", value: "en-US" },
+                    { text: "en-GB", value: "en-GB" }
+                ]
+            });
+
+            function changeCulture() {
+                kendo.culture(this.value());
+
+                var datePickerOptions = {
+                    format: kendo.culture().calendar.patterns.d
+                };
+
+                var timePickerOptions = {
+                    format: kendo.culture().calendar.patterns.t
+                };
+
+                dateCtrl.setOptions(datePickerOptions);
+
+
+                timeCtrl.setOptions(timePickerOptions);
+
+
+                amount.value(amount.value());
+                discount.value(discount.value());
+            }
+            */
+
+        });
+    </script>
+
+</body>
+</html>

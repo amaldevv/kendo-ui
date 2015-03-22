@@ -1,6 +1,6 @@
 ﻿<html>
 <head>
-    <title>Getting Started With Kendo UI</title>
+    <title>Features</title>
 
     <!--CSS Files-->
 
@@ -31,10 +31,7 @@
         <div class="row">
             <div class="col-md-10"></div>
         </div>
-        <div class="row text-center">
-            <div class="col-md-4" ><span>jQuery Syntax</span></div>
-            <div class="col-md-4"><span>HTML5 Syntax</span></div>
-        </div>
+        
         <div class="row voffset2">
             <div class="col-md-2"><span>Choose a date</span></div>
             <div class="col-md-2"><input type="date" id="jQDatePicker" /></div>
@@ -45,10 +42,12 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-           /* $("#jQDatePicker").kendoDatePicker();
+            //initializing multiple widgets at once
+            //$("[type=date]").kendoDatePicker();
 
-            kendo.init($("#hTDatePicker"));*/
-
+            
+            //chaining
+            //$("[type=date]").kendoDatePicker().css("color","red").css("background-color","lightgray");
         });
     </script>
 
