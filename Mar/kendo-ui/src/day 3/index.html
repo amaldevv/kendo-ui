@@ -1,0 +1,437 @@
+<html>
+<head>
+
+    <title>Home</title>
+    <!-- Latest compiled and minified CSS -->
+    <!--CSS Files-->
+    <!--Kendo UI common styles-->
+    <link href="../css/kendo.common.min.css" rel="stylesheet" />
+    <!--Kendo UI default theme-->
+    <link href="../css/kendo.metro.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+
+    <!-- Optional theme -->
+
+    <link rel="stylesheet" href="../css/custom.css" />
+
+
+    <!-- JS imports -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <!--Kendo Scripts-->
+    <!--Kendo UI core javascript-->
+    <script type="text/javascript" src="scripts/kendo.all.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="scripts/color-picker.js"></script>
+    <script type="text/javascript" src="scripts/masked-edit.js"></script>
+    <script type="text/javascript" src="scripts/numeric-textbox.js"></script>
+    <script type="text/javascript" src="scripts/dropdown-list.js"></script>
+    <script type="text/javascript" src="scripts/editor.js"></script>
+    <script type="text/javascript" src="scripts/list-view.js"></script>
+    <script type="text/javascript" src="scripts/multi-select.js"></script>
+</head>
+<body>
+
+    <form>
+        <div id="header" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="icon-reorder"></i>
+
+                </button> <a class="navbar-brand" href="#">
+                    Kendo UI
+                </a>
+
+            </div>
+            <nav class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../day 1/index.html">Day 1</a>
+
+
+
+                    </li>
+                    <li>
+                        <a class="" href="#">Day 2</a>
+
+                        <!--<ul class="dropdown-menu">
+                                    <li><a class="" href="#">Navbar Item2 - Sub Item 1</a>
+
+                                    </li>
+                        </ul>-->
+                    </li>
+                    <li>
+                        <a class="" href="#">Day 3</a>
+
+                    </li>
+                </ul>
+                <!--<ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" id="nbAcctDD" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Username<i class="icon-sort-down"></i></a>
+
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a class="" href="#">Log Out</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>-->
+            </nav>
+        </div>
+        <div class="" id="wrapper">
+            <div id="sidebar-wrapper" class="col-md-2">
+                <div class="" id="sidebar">
+                    <ul class="nav list-group">
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('CP')"><i class="icon-home icon-1x"></i>Color Picker</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('ME')"><i class="icon-home icon-1x"></i>Masked Editbox</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('NT')"><i class="icon-home icon-1x"></i>Numeric Textbox</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('DP')"><i class="icon-home icon-1x"></i>Dropdown List</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('ED')"><i class="icon-home icon-1x"></i>Editor</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('LV')"><i class="icon-home icon-1x"></i>List View</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('MS')"><i class=" icon-home icon-1x"></i>Multi Select</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('DT')"><i class="icon-home icon-1x"></i>Date Picker</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <div id="cpContent" style="display:none" class="row voffset5">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"><span class="text-left">Choose a color </span></div>
+            <div class="col-md-6"><input type="color" id="cpColor" /></div>
+
+        </div>
+
+        <div width="600px; top:100px" id="wndExample">
+
+            <div class="row ">
+                <div class="col-md-9"></div>
+            </div>
+            <div id="meContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span>Enter Text</span></div>
+                <div class="col-md-6"><input id="meTxt" /></div>
+
+            </div>
+            <div id="ntContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span>Enter Value</span></div>
+                <div class="col-md-6"><input id="ntTxt" /></div>
+
+            </div>
+            <div id="dpContent" style="display:none" class="row voffset1">
+
+
+                <div class="col-md-10"><input style="width:100%" class="input-large" id="drpCategory" /></div>
+                <!--<div class="col-md-6">
+                    <select id="drpCategory">
+                        <option>Category 1</option>
+                        <option>Category 2</option>
+                        <option>Category 3</option>
+                    </select>
+                </div>-->
+                <br />
+                <!--<div class="col-md-10"><input style="width:100%" class="input-large" id="drpCasProduct" /></div>-->
+
+
+            </div>
+            <div id="edContent" style="display:none" class="row">
+
+                <div class="col-md-10"><textarea id="txtEditor" rows="10" cols="30"></textarea></div>
+                <!--<div class="col-md-10"><div id="txtEditor" style="height:200px"></div></div>-->
+
+            </div>
+
+            <div id="lvContent" style="display:none" class="row">
+                <div class="col-md-10">
+                    <div id="lvItems" style="height:500px"></div>
+                    <div class="k-page-wrap">
+                        <div id="pager"></div>
+                    </div>
+                </div>
+                <!--<div class="col-md-6">
+                    <select id="cmbProduct">
+                        <option>Product 1</option>
+                        <option>Product 2</option>
+                        <option>Product 3</option>
+                    </select>
+                </div>-->
+                <!--define template-->
+                <script type="text/x-kendo-tmpl" id="tmplItems">
+                    <div class="product">
+                        <img src="http://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+                        <h3>#:ProductName#</h3>
+                        <p>#:kendo.toString(UnitPrice, "c")#</p>
+                    </div>
+                </script>
+                <script type="text/x-kendo-tmpl" id="altTmplItems">
+                    <div class="product alt">
+                        <img src="http://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+                        <h3>#:ProductName#</h3>
+                        <p>#:kendo.toString(UnitPrice, "c")#</p>
+                    </div>
+                </script>
+            </div>
+
+            <div id="msContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span class="text-left">Choose Items </span></div>
+                <div class="col-md-6">
+                    <select id="msItems"   data-placeholder="Select items">
+                        <!--<option>Item 1</option>
+                        <option>Item 2</option>
+                        <option selected>Item 3</option>
+                        <option>Item 4</option>
+                        <option>Item 5</option>
+                        <option selected>Item 6</option>-->
+                    </select>
+                    <script id="tgTmpl" type="text/x-kendo-template">
+                        Name : #:data.ProductName#
+                    </script>
+                </div>
+
+            </div>
+            <div id="dtContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span>Choose a date</span></div>
+                <div class="col-md-6"><input id="dtDatePicker" /></div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+
+    <script>
+
+
+
+        function InitWindow(context) {
+            //debugger;
+            var window = $("#wndExample");
+
+            $('#cpContent').css("display", "none");
+            $('#meContent').css("display", "none");
+            $('#ntContent').css("display", "none");
+            $('#dpContent').css("display", "none");
+            $('#edContent').css("display", "none");
+            $('#lvContent').css("display", "none");
+            $('#msContent').css("display", "none");
+            $('#dtContent').css("display", "none");
+            if (context == "CP") {
+                //window.hide();
+                $('#cpContent').css("display", "block");
+                return;
+
+            }
+
+            if (!window.data("kendoWindow")) {
+                window.kendoWindow({
+                    width: "600px",
+                    title: "Day 2",
+                    actions: [
+                        "Pin",
+                        "Minimize",
+                        "Maximize",
+                        "Close"
+                    ],
+                    close: function () {
+                        window.hide();
+                    }
+                });
+            }
+
+
+            switch (context) {
+                case "ME":
+                    $('#meContent').css("display", "block");
+                    break;
+                case "NT":
+                    $('#ntContent').css("display", "block");
+                    break;
+                case "DP":
+                    $('#dpContent').css("display", "block");
+                    break;
+                case "ED":
+                    $('#edContent').css("display", "block");
+                    break;
+                case "LV":
+                    $('#lvContent').css("display", "block");
+                    break;
+                case "MS":
+                    $('#msContent').css("display", "block");
+                    break;
+                case "DT":
+                    $('#dtContent').css("display", "block");
+                    break;
+
+            }
+
+
+            window.data("kendoWindow").center().open();
+            window.show();
+
+        }
+
+    </script>
+    <style>
+        #wndExample {
+            margin-top: 30px;
+            min-height: 300px;
+        }
+
+        .alt { background-color: #EEE; }
+        .product {
+            float: left;
+            position: relative;
+            width: 211px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+        }
+        .product img {
+            width: 110px;
+            height: 110px;
+        }
+        .dropdown-header {
+                    font-size: 1.2em;
+                }
+
+                .dropdown-header > span {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    text-align: left;
+                    display: inline-block;
+                    border-style: solid;
+                    border-width: 0 0 1px 1px;
+                    padding: .3em .6em;
+                    width: 362px;
+                }
+
+                .dropdown-header > span:first-child {
+                    width: 82px;
+                    border-left-width: 0;
+                }
+
+                .demo-section {
+                    width: 450px;
+                }
+                .demo-section h2 {
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                    margin-bottom: 10px;
+                }
+
+                .selected-value {
+                    float: left;
+                    width: 16px;
+                    margin: 3px 4px;
+                }
+
+                #drpCategory-list .k-item > span{
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    border-style: solid;
+                    border-width: 0 0 1px 1px;
+                    vertical-align: top;
+                    min-height: 95px;
+                    width: 79%;
+                    padding: .6em 0 0 .6em;
+                }
+
+                #drpCategory-list .k-item > span:first-child{
+                    width: 77px;
+                    border-left-width: 0;
+                    padding: .6em 0 0 0;
+                }
+
+                #drpCategory-list img {
+                    -moz-box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    box-shadow: 0 0 2px rgba(0,0,0,.4);
+                    width: 70px;
+                    height: 77px;
+                }
+
+                #drpCategory-list h3 {
+                    font-size: 1.6em;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                #drpCategory-list p {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                html.k-material .selected-value {
+                    margin: 6px 0 0 10px;
+                }
+                
+                html.k-material .dropdown-header > span {
+                    border: 0;
+                }
+                html.k-material .dropdown-header > span {
+                    width: 354px;
+                }
+                html.k-material .dropdown-header > span:first-child {
+                    width: 90px;
+                }
+                html.k-material #drpCategory-list .k-item > span{
+                    min-height: 80px;
+                    border-width: 0 0 1px 0;
+                }
+                html.k-material #drpCategory-list img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                }
+                html.k-material #drpCategory-list h3 {
+                    font-size: 1.2em;
+                    line-height: 1em;
+                    margin-top: .5em;
+                }
+    </style>
+
+</body>
+
+</html>
