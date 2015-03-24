@@ -29,9 +29,15 @@
 
     <script type="text/javascript" src="scripts/autocomplete.js"></script>
     <script type="text/javascript" src="scripts/button.js"></script>
-
+    <script type="text/javascript" src="scripts/combo-box.js"></script>
+    <script type="text/javascript" src="scripts/calendar.js"></script>
+    <script type="text/javascript" src="scripts/color-picker.js"></script>
+    <script type="text/javascript" src="scripts/date-picker.js"></script>
+    <script type="text/javascript" src="scripts/masked-edit.js"></script>
+    <script type="text/javascript" src="scripts/numeric-textbox.js"></script>
 </head>
 <body>
+
     <form>
         <div id="header" class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-header">
@@ -84,23 +90,35 @@
                 <div class="" id="sidebar">
                     <ul class="nav list-group">
                         <li>
-                            <a class="list-group-item k-link"  onclick="InitWindow('AT')"><i class="icon-home icon-1x"></i>Auto Complete</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('AT')"><i class="icon-home icon-1x"></i>Auto Complete</a>
 
                         </li>
                         <li>
-                            <a class="list-group-item k-link" onclick="InitWindow('BT')" ><i class="icon-home icon-1x"></i>Button</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('BT')"><i class="icon-home icon-1x"></i>Button</a>
 
                         </li>
                         <li>
-                            <a class="list-group-item" href="widget-configration-and-events.html" target="_blank"><i class="icon-home icon-1x"></i>Widget Configuration &amp; Event</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('CB')"><i class="icon-home icon-1x"></i>Combo Box</a>
 
                         </li>
                         <li>
-                            <a class="list-group-item" href="styles-and-themes.html" target="_blank"><i class="icon-home icon-1x"></i>Styles &amp; Themes</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('CL')"><i class=" icon-home icon-1x"></i>Calendar</a>
 
                         </li>
                         <li>
-                            <a class="list-group-item" href="globalization.html" target="_blank"><i class="icon-home icon-1x"></i>Globalization</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('CP')"><i class="icon-home icon-1x"></i>Color Picker</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('DT')"><i class="icon-home icon-1x"></i>Date Picker</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('ME')"><i class="icon-home icon-1x"></i>Masked Editbox</a>
+
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('NT')"><i class="icon-home icon-1x"></i>Numeric Textbox</a>
 
                         </li>
                     </ul>
@@ -109,27 +127,81 @@
 
 
 
-            <div class="col-md-10 pull-right" id="wndExample">
 
-
-                <div id="atContent" style="display:none" class="row voffset1">
-
-                    <div class="col-md-3"><span class="text-left">Auto Complete </span></div>
-                    <div class="col-md-6"><input class="input-large" id="atComplete" /></div>
-                    
-                </div>
-                <div id="btContent" style="display:none" class="row voffset1">
-
-                    <div class="col-md-3"><button id="btnSend" class="k-primary">Send</button></div>
-                    <div class="col-md-3"><button id="btnText" >Clear</button></div>
-
-                    <div class="col-md-3"><a id="btnEdit">Edit</a></div>
-                    
-
-                </div>
-            </div>
         </div>
 
+        <div id="cpContent" style="display:none" class="row voffset5">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"><span class="text-left">Choose a color </span></div>
+            <div class="col-md-6"><input type="color" id="cpColor" /></div>
+
+        </div>
+
+        <div width="600px; top:100px" id="wndExample">
+
+            <div class="row ">
+                <div class="col-md-9"></div>
+            </div>
+            <div id="atContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span class="text-left">Auto Complete </span></div>
+                <div class="col-md-6"><input class="input-large" id="atComplete" /></div>
+
+            </div>
+            <div id="btContent" style="display:none" class="row">
+
+                <div class="col-md-3"><button id="btnSend" class="k-primary">Send</button></div>
+                <div class="col-md-3"><button id="btnText">Clear</button></div>
+
+                <div class="col-md-3"><a id="btnEdit">Edit</a></div>
+
+
+            </div>
+
+            <div id="cbContent" style="display:none" class="row">
+                <div class="col-md-3"><span class="text-left">Product </span></div>
+                <div class="col-md-6"><input class="input-large" id="cmbProduct" /></div>
+                <!--<div class="col-md-6">
+                    <select id="cmbProduct">
+                        <option>Product 1</option>
+                        <option>Product 2</option>
+                        <option>Product 3</option>
+                    </select>
+                </div>-->
+                <!--define template-->
+                <script id="cbTemplate" type="text/x-kendo-template">
+                    Product : #:data.ProductName#, Product ID: #:data.ProductID#
+                </script>
+                <script id="cbHeaderTemplate" type="text/x-kendo-template">
+                    <label>Products</label>
+                </script>
+            </div>
+
+            <div id="clContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span class="text-left">Choose a date </span></div>
+                <div class="col-md-6"><div id="clDate" ></div></div>
+
+            </div>
+            <div id="dtContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span >Choose a date</span></div>
+                <div class="col-md-6"><input  id="dtDatePicker" /></div>
+
+            </div>
+            <div id="meContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span>Enter Text</span></div>
+                <div class="col-md-6"><input id="meTxt" /></div>
+
+            </div>
+            <div id="ntContent" style="display:none" class="row voffset1">
+
+                <div class="col-md-3"><span>Enter Value</span></div>
+                <div class="col-md-6"><input id="ntTxt" /></div>
+
+            </div>
+        </div>
     </form>
 
 
@@ -141,6 +213,21 @@
         function InitWindow(context) {
             //debugger;
             var window = $("#wndExample");
+            $('#atContent').css("display", "none");
+            $('#btContent').css("display", "none");
+            $('#cbContent').css("display", "none");
+            $('#clContent').css("display", "none");
+            $('#cpContent').css("display", "none");
+            $('#dtContent').css("display", "none");
+            $('#meContent').css("display", "none");
+            $('#ntContent').css("display", "none");
+            if (context == "CP") {
+                //window.hide();
+                $('#cpContent').css("display", "block");
+                return;
+
+            }
+           
             if (!window.data("kendoWindow")) {
                 window.kendoWindow({
                     width: "600px",
@@ -157,8 +244,7 @@
                 });
             }
 
-            $('#atContent').css("display", "none");
-            $('#btContent').css("display", "none");
+           
             switch (context) {
                 case "AT":
                     $('#atContent').css("display", "block");
@@ -166,8 +252,24 @@
                 case "BT":
                     $('#btContent').css("display", "block");
                     break;
-
+                case "CB":
+                    $('#cbContent').css("display", "block");
+                    break;
+                case "CL":
+                    $('#clContent').css("display", "block");
+                    break;
+                case "DT":
+                    $('#dtContent').css("display", "block");
+                    break;
+                case "ME":
+                    $('#meContent').css("display", "block");
+                    break;
+                case "NT":
+                    $('#ntContent').css("display", "block");
+                    break;
             }
+
+
             window.data("kendoWindow").center().open();
             window.show();
 
@@ -176,7 +278,7 @@
     </script>
     <style>
         #wndExample {
-            margin-top: 80px;
+            margin-top: 30px;
             min-height: 300px;
         }
     </style>
