@@ -3,7 +3,7 @@ $(function () {
 
 
     //initialization
-    $("#ntTxt").kendoNumericTextBox();
+    //$("#ntTxt").kendoNumericTextBox();
 
     //options
     /*$("#nmNumericTextBox").kendoNumericTextBox({

@@ -34,6 +34,9 @@
     <script type="text/javascript" src="scripts/editor.js"></script>
     <script type="text/javascript" src="scripts/list-view.js"></script>
     <script type="text/javascript" src="scripts/multi-select.js"></script>
+    <script type="text/javascript" src="scripts/tabstrip.js"></script>
+    <script type="text/javascript" src="scripts/tree-view.js"></script>
+    <script type="text/javascript" src="scripts/window.js"></script>
 </head>
 <body>
 
@@ -57,7 +60,7 @@
 
                     </li>
                     <li>
-                        <a class="" href="#">Day 2</a>
+                        <a class="" href="../day 2/index.html">Day 2</a>
 
                         <!--<ul class="dropdown-menu">
                                     <li><a class="" href="#">Navbar Item2 - Sub Item 1</a>
@@ -67,6 +70,14 @@
                     </li>
                     <li>
                         <a class="" href="#">Day 3</a>
+
+                    </li>
+                    <li>
+                        <a class="" href="#">Day 4</a>
+
+                    </li>
+                    <li>
+                        <a class="" href="#">Day 5</a>
 
                     </li>
                 </ul>
@@ -117,10 +128,17 @@
 
                         </li>
                         <li>
-                            <a class="list-group-item k-link" onclick="InitWindow('DT')"><i class="icon-home icon-1x"></i>Date Picker</a>
+                            <a class="list-group-item k-link" onclick="InitWindow('TB')"><i class="icon-home icon-1x"></i>Tab Strip</a>
 
                         </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="InitWindow('TV')"><i class="icon-home icon-1x"></i>Tree View</a>
 
+                        </li>
+                        <li>
+                            <a class="list-group-item k-link" onclick="ShowWindow()"><i class="icon-home icon-1x"></i>Window</a>
+
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -212,7 +230,7 @@
 
                 <div class="col-md-3"><span class="text-left">Choose Items </span></div>
                 <div class="col-md-6">
-                    <select id="msItems"   data-placeholder="Select items">
+                    <select id="msItems" data-placeholder="Select items">
                         <!--<option>Item 1</option>
                         <option>Item 2</option>
                         <option selected>Item 3</option>
@@ -226,13 +244,67 @@
                 </div>
 
             </div>
-            <div id="dtContent" style="display:none" class="row voffset1">
+            <div id="tbContent" style="display:none" class="row voffset1">
+                <div class="col-md-10" id="tbStrip">
+                    <ul>
+                        <li>Product</li>
+                        <!--<li class="k-state-active">Product</li>-->
+                        <li>Category</li>
+                    </ul>
+                    <!--<div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</div>
+                    <div>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</div>-->
+                </div>
+            </div>
+            <div id="tvContent" style="display:none" class="row voffset1">
 
-                <div class="col-md-3"><span>Choose a date</span></div>
-                <div class="col-md-6"><input id="dtDatePicker" /></div>
+
+                <div class="col-md-10" id="tbStrip">
+                    <div id="trVw"></div>
+                    <!--<ul id="trVw">
+                        <li>
+                            Item 1
+                            <ul>
+                                <li>
+                                    Item 1.1
+                                    <ul>
+                                        <li>
+                                            Item 1.1.1
+                                        </li>
+                                        <li>
+                                            Item 1.1.2
+                                        </li>
+                                        <li>
+                                            Item 1.1.3
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Item 1.2</li>
+                            </ul>
+                        </li>
+                        <li>Item 2</li>
+                        <li>
+                            Item 3
+                            <ul>
+                                <li> Item 3.1</li>
+                                <li>
+                                    Item 3.2
+                                    <ul>
+                                        <li>Item 3.2.1</li>
+                                        <li>Item 3.2.2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>-->
+                </div>
+
 
             </div>
-
+            <div id="wnContent" style="display:none" class="row voffset1">
+                <div class="col-md-8" style="width:400px" id="wnd">
+                    <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</span>
+                </div>
+            </div>
         </div>
     </form>
 
@@ -253,7 +325,9 @@
             $('#edContent').css("display", "none");
             $('#lvContent').css("display", "none");
             $('#msContent').css("display", "none");
-            $('#dtContent').css("display", "none");
+            $('#tbContent').css("display", "none");
+            $('#tvContent').css("display", "none");
+            $('#wnContent').css("display", "none");
             if (context == "CP") {
                 //window.hide();
                 $('#cpContent').css("display", "block");
@@ -264,7 +338,7 @@
             if (!window.data("kendoWindow")) {
                 window.kendoWindow({
                     width: "600px",
-                    title: "Day 2",
+                    title: "Day 3",
                     actions: [
                         "Pin",
                         "Minimize",
@@ -297,10 +371,13 @@
                 case "MS":
                     $('#msContent').css("display", "block");
                     break;
-                case "DT":
-                    $('#dtContent').css("display", "block");
+                case "TB":
+                    $('#tbContent').css("display", "block");
                     break;
-
+                case "TV":
+                    $('#tvContent').css("display", "block");
+                    break;
+               
             }
 
 
@@ -308,7 +385,7 @@
             window.show();
 
         }
-
+       
     </script>
     <style>
         #wndExample {
@@ -316,7 +393,15 @@
             min-height: 300px;
         }
 
-        .alt { background-color: #EEE; }
+         #wnd {
+            margin-top: 30px;
+            min-height: 300px;
+        }
+
+        .alt {
+            background-color: #EEE;
+        }
+
         .product {
             float: left;
             position: relative;
@@ -325,111 +410,140 @@
             margin: 0;
             padding: 0;
         }
-        .product img {
-            width: 110px;
-            height: 110px;
-        }
-        .dropdown-header {
-                    font-size: 1.2em;
-                }
 
-                .dropdown-header > span {
-                    -webkit-box-sizing: border-box;
-                    -moz-box-sizing: border-box;
-                    box-sizing: border-box;
-                    text-align: left;
-                    display: inline-block;
-                    border-style: solid;
-                    border-width: 0 0 1px 1px;
-                    padding: .3em .6em;
-                    width: 362px;
-                }
+            .product img {
+                width: 110px;
+                height: 110px;
+            }
+
+        .dropdown-header {
+            font-size: 1.2em;
+        }
+
+            .dropdown-header > span {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                text-align: left;
+                display: inline-block;
+                border-style: solid;
+                border-width: 0 0 1px 1px;
+                padding: .3em .6em;
+                width: 362px;
+            }
 
                 .dropdown-header > span:first-child {
                     width: 82px;
                     border-left-width: 0;
                 }
 
-                .demo-section {
-                    width: 450px;
-                }
-                .demo-section h2 {
-                    text-transform: uppercase;
-                    font-size: 1.2em;
-                    margin-bottom: 10px;
-                }
+        .demo-section {
+            width: 450px;
+        }
 
-                .selected-value {
-                    float: left;
-                    width: 16px;
-                    margin: 3px 4px;
-                }
+            .demo-section h2 {
+                text-transform: uppercase;
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
 
-                #drpCategory-list .k-item > span{
-                    -webkit-box-sizing: border-box;
-                    -moz-box-sizing: border-box;
-                    box-sizing: border-box;
-                    display: inline-block;
-                    border-style: solid;
-                    border-width: 0 0 1px 1px;
-                    vertical-align: top;
-                    min-height: 95px;
-                    width: 79%;
-                    padding: .6em 0 0 .6em;
-                }
+        .selected-value {
+            float: left;
+            width: 16px;
+            margin: 3px 4px;
+        }
 
-                #drpCategory-list .k-item > span:first-child{
-                    width: 77px;
-                    border-left-width: 0;
-                    padding: .6em 0 0 0;
-                }
+        #drpCategory-list .k-item > span {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            border-style: solid;
+            border-width: 0 0 1px 1px;
+            vertical-align: top;
+            min-height: 95px;
+            width: 79%;
+            padding: .6em 0 0 .6em;
+        }
 
-                #drpCategory-list img {
-                    -moz-box-shadow: 0 0 2px rgba(0,0,0,.4);
-                    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.4);
-                    box-shadow: 0 0 2px rgba(0,0,0,.4);
-                    width: 70px;
-                    height: 77px;
-                }
+            #drpCategory-list .k-item > span:first-child {
+                width: 77px;
+                border-left-width: 0;
+                padding: .6em 0 0 0;
+            }
 
-                #drpCategory-list h3 {
-                    font-size: 1.6em;
-                    margin: 0;
-                    padding: 0;
-                }
+        #drpCategory-list img {
+            -moz-box-shadow: 0 0 2px rgba(0,0,0,.4);
+            -webkit-box-shadow: 0 0 2px rgba(0,0,0,.4);
+            box-shadow: 0 0 2px rgba(0,0,0,.4);
+            width: 70px;
+            height: 77px;
+        }
 
-                #drpCategory-list p {
-                    margin: 0;
-                    padding: 0;
-                }
-                
-                html.k-material .selected-value {
-                    margin: 6px 0 0 10px;
-                }
-                
-                html.k-material .dropdown-header > span {
-                    border: 0;
-                }
-                html.k-material .dropdown-header > span {
-                    width: 354px;
-                }
-                html.k-material .dropdown-header > span:first-child {
-                    width: 90px;
-                }
-                html.k-material #drpCategory-list .k-item > span{
-                    min-height: 80px;
-                    border-width: 0 0 1px 0;
-                }
-                html.k-material #drpCategory-list img {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                }
-                html.k-material #drpCategory-list h3 {
-                    font-size: 1.2em;
-                    line-height: 1em;
-                    margin-top: .5em;
-                }
+        #drpCategory-list h3 {
+            font-size: 1.6em;
+            margin: 0;
+            padding: 0;
+        }
+
+        #drpCategory-list p {
+            margin: 0;
+            padding: 0;
+        }
+
+        html.k-material .selected-value {
+            margin: 6px 0 0 10px;
+        }
+
+        html.k-material .dropdown-header > span {
+            border: 0;
+        }
+
+        html.k-material .dropdown-header > span {
+            width: 354px;
+        }
+
+            html.k-material .dropdown-header > span:first-child {
+                width: 90px;
+            }
+
+        html.k-material #drpCategory-list .k-item > span {
+            min-height: 80px;
+            border-width: 0 0 1px 0;
+        }
+
+        html.k-material #drpCategory-list img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        html.k-material #drpCategory-list h3 {
+            font-size: 1.2em;
+            line-height: 1em;
+            margin-top: .5em;
+        }
+
+        #tbStrip .k-sprite {
+            background-image: url("../css/flags.png");
+        }
+
+        .brazilFlag {
+            background-position: 0 0;
+        }
+
+        .indiaFlag {
+            background-position: 0 -32px;
+        }
+
+        .netherlandsFlag {
+            background-position: 0 -64px;
+        }
+
+        .k-tabstrip .k-content {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     </style>
 
 </body>

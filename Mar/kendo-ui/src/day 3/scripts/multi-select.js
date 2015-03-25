@@ -7,7 +7,7 @@
     //remote data binding to a select element 
 
 
-    $("#msItems").kendoMultiSelect({
+    /*$("#msItems").kendoMultiSelect({
         dataTextField: "ProductName",
         dataValueField: "ProductID",
         tagTemplate: $("#tgTmpl").html(),
@@ -19,5 +19,5 @@
                 }
             }
         }
-    });
+    });*/
 });

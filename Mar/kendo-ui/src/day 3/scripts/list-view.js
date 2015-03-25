@@ -47,7 +47,7 @@
     //alternating template and paging
 
 
-    var ds = new kendo.data.DataSource({
+    /*var ds = new kendo.data.DataSource({
         transport: {
             read: {
                 url: "http://demos.kendoui.com/service/Products",
@@ -69,5 +69,5 @@
         template: kendo.template($("#tmplItems").html()),
         altTemplate: kendo.template($("#altTmplItems").html()),
     });
-
+    */
 });

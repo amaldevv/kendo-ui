@@ -7,7 +7,7 @@
     //$("#txtEditor").kendoEditor();
 
     //editor tools configuration
-    $("#txtEditor").kendoEditor({
+    /*$("#txtEditor").kendoEditor({
         tools: [
              "bold",
              "italic",
@@ -15,6 +15,7 @@
              "foreColor"
         ]
     });
+    */
 
     
 });
