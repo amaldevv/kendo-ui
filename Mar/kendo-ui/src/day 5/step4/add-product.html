@@ -146,7 +146,7 @@
         $("#btnAdd").on("click", function (e) {
             debugger;
 
-            if (!validatorCtrl.validate()) {
+            if (validatorCtrl.validate()) {
                 e.preventDefault();
                 //alert("Success");
                var product ={
@@ -175,8 +175,8 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
-                     url: "http://services.techrepository.in/Northwind.svc/Products",
-                   // url: "http://services.odata.org/V4/OData/(S(ntk2j4tkuu1cb2a1akdggtkm))/OData.svc/Products",
+                     //url: "http://services.techrepository.in/Northwind.svc/Products",
+                   url: "http://services.odata.org/V4/OData/(S(ntk2j4tkuu1cb2a1akdggtkm))/OData.svc/Products",
                     data: data,
                     dataType: "json",
                     success: function()

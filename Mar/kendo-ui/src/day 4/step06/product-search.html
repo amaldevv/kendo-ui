@@ -1,0 +1,211 @@
+
+
+<html >
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link rel="stylesheet" type="text/css" href="../styles/kendo.common.min.css">
+    <!-- Kendo UI default theme css -->
+    <link rel="stylesheet" type="text/css" href="../styles/kendo.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/bootstrap-combined.min.css">
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <!-- Kendo UI -->
+   
+    <script type="text/javascript" src="http://cdn.kendostatic.com/2014.3.1316/js/kendo.all.min.js"></script>
+   
+    <script type="text/javascript" src="scripts/product-search.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/moment/moment.js"></script>
+    <style type="text/css">
+      body {
+      font-size: 14px;
+      
+      }
+      k-state-hover .k-span-hover li-hover div-hover ul-hover{
+          background-color: transparent !important;
+      }
+      .k-datepicker {
+        vertical-align: middle;
+      }
+      .results {
+      margin: 10px 0;
+      padding: 10px;
+      }
+      .results .k-widget {
+      border-style: none;
+      }
+      .result {
+      margin: 20px;
+      }
+      .result &gt; :first-child {
+      float: left;
+      margin-right: 10px;
+      }
+      .poster {
+      width: 100px;
+      height: 149px;
+      }
+      .details {
+      margin-left: 110px;
+      }
+      .title {
+      font-weight: bold;
+      font-size: 1.2em;
+      }
+      .logo {
+      height: 25px;
+      width: 88px;
+      margin-top: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand">
+          <img class="logo" src="http://images.rottentomatoescdn.com/images/trademark/flixster-logo.png" /> 
+          Sample Store Front
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="http://www.rottentomatoes.com">Rotten Tomatoes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container-fluid" >
+        <div class="col-lg-15 content">
+          <ul id="pnlBarSearch" >
+            <li>
+              Search
+              <ul class="row clearfix">
+               <li class="col-lg-3" style="padding-top : 10px;padding-bottom : 10px">
+                  <span >Category&nbsp;&nbsp;&nbsp;</span><input id="drpCategory" style="width:200px" /><br>
+                  <span >Products&nbsp;&nbsp;&nbsp;</span><input id="drpProducts" style="width:200px" />
+                </li>
+                <li class="col-lg-3" style="padding-top : 10px;padding-bottom : 10px">
+                  <span style="padding-right:15px">Order From</span><input id="dtOrderFrom" style="width:150px;" /><br>
+                  <span style="padding-right:30px">Order To</span><input id="dtOrderTo" style="width:150px;"/>
+                </li> 
+                <li class="col-lg-3" style="padding-top : 10px;padding-bottom : 10px">
+                  <span style="padding-right:15px">Price From</span><input id="ntPriceFrom" style="width:150px;" /><br>
+                  <span style="padding-right:30px">Price To</span><input id="ntPriceTo" style="width:150px;"/>
+                </li> 
+                <li class="col-lg-11"></li>
+                <li class="col-lg-1" style="padding-bottom:10px">
+                  <button type="button" id="btnSearch" class="btn btn-primary btn-small"  >Search</button>
+                </li>
+                
+              </ul>
+               
+            </li>
+            <li>
+              Order Details
+              <ul class="row clearfix">
+                <li style="height:10px"></li>
+                <li  class="col-lg-12" style="height:430px" >
+                  <div id="gdOrderDetails" style="height:350px; " >
+                
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          
+        
+      </div>
+
+    </div>
+    <span id="notMessage"></span>
+  </body>
+  <style>
+     
+
+    /* reset everything to the default box model */
+
+*,
+:before,
+:after
+{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* set a border-box model only to elements that need it */
+
+.form-control, /* if this class is applied to a Kendo UI widget, its layout may change */
+.container,
+.container-fluid,
+.row,
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-control.k-widget
+{
+    padding: 0;
+}
+.
+</style>
+</html>
+
