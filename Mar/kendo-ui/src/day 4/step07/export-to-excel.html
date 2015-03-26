@@ -1,0 +1,134 @@
+﻿
+
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link rel="stylesheet" type="text/css" href="/styles/kendo.common.min.css">
+    <!-- Kendo UI default theme css -->
+    <link rel="stylesheet" type="text/css" href="/styles/kendo.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap-combined.min.css">
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet"> -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!-- Kendo UI -->
+    <script type="text/javascript" src="scripts/kendo.all.min.js"></script>
+
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/moment/moment.js"></script>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+        }
+
+        .k-datepicker {
+            vertical-align: middle;
+        }
+
+        .results {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+            .results .k-widget {
+                border-style: none;
+            }
+
+        .result {
+            margin: 20px;
+        }
+
+            .result &gt; :first-child {
+                float: left;
+                margin-right: 10px;
+            }
+
+        .poster {
+            width: 100px;
+            height: 149px;
+        }
+
+        .details {
+            margin-left: 110px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .logo {
+            height: 25px;
+            width: 88px;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Untitled</title>
+
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css">
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.rtl.min.css">
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.default.min.css">
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.min.css">
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.dataviz.default.min.css">
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1411/styles/kendo.mobile.all.min.css">
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.3.1411/js/angular.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.3.1411/js/jszip.min.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js"></script>
+
+        <script src="scripts/products.js"></script>
+    </head>
+    <body>
+        <div id="example">
+            <div id="grid"></div>
+
+            <script>
+                $(document).ready(function () {
+                    $("#grid").kendoGrid({
+                        toolbar: ["excel"],
+                        excel: {
+                            fileName: "Products.xlsx",
+                            allPages : true
+                        },
+                        dataSource: {
+                            data: products,
+                            schema: {
+                                model: {
+                                    fields: {
+                                        ProductName: { type: "string" },
+                                        UnitPrice: { type: "number" },
+                                        UnitsInStock: { type: "number" },
+                                        Discontinued: { type: "boolean" }
+                                    }
+                                }
+                            },
+                            pageSize: 20
+                        },
+                        height: 550,
+                        scrollable: true,
+                        sortable: true,
+                        filterable: true,
+                        pageable: {
+                            input: true,
+                            numeric: false
+                        },
+                        columns: [
+                            "ProductName",
+                            { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "130px" },
+                            { field: "UnitsInStock", title: "Units In Stock", width: "130px" },
+                            { field: "Discontinued", width: "130px" }
+                        ]
+                    });
+                });
+            </script>
+        </div>
+    </body>
+
+</html>
+
