@@ -1,0 +1,12 @@
+local data
+excel export
+batch edit
+inline edit
+popup edit
+custom editor
+custom validator
+toolbar template
+custom commands
+filter menu
+column menu
+master-detail
