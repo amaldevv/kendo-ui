@@ -1,20 +1,20 @@
 $(function(){
 
+   // $("#chart").kendoChart();
+   //local data, renders column chart by def
+    $("#chart").kendoChart({
+        title: {
+            text: "Sales History" //caption
+        },
+        series: [
+        { name: "Sales", data: [200, 450, 300, 125] } //data binding
+        ],
 
-   //local data
-   $("#chart").kendoChart({
-    title: {
-     text: "Sales History"
-   },
-   series: [
-   { name: "Sales", data: [200, 450, 300, 125] }
-   ],
-
-    //step -2 applies label across category axis
-    /*categoryAxis:{
-         categories: [ 2000, 2001, 2002, 2003 ]
-       }*/ 
-     });
+        //step -2 applies label across category axis
+        /*categoryAxis:{
+             categories: [ 2000, 2001, 2002, 2003 ]
+           }*/
+    });
 
   //step 3 - bounding category names to a data item
   /*var salesData = [ {
@@ -81,7 +81,7 @@ $(function(){
     series: [{
       type: "scatter",
       name: "Pentium D 915",
-      data: [[120, 102]]
+      data: [[120, 102], [685, 200], [485, 300]]
     }],
     xAxis: {
       max: 1000
@@ -96,7 +96,7 @@ $(function(){
 // can define more x and Y axis in addition to primary ones
 // must have unique name, first series is assciated with def y axis 
 //Do not specify a name for the primary X and Y axes
-$("#scatterChart").kendoChart({
+/*$("#scatterChart").kendoChart({
   title: {
     text: "Dyno run results"
   },
@@ -115,7 +115,8 @@ $("#scatterChart").kendoChart({
     yAxis: "torque"
   }],
   xAxis: {
-    title: "Engine rpm"
+    title: "Engine rpm",
+    // axisCrossingValue: [0, 2500]
   },
   yAxis: [{
     labels: {
@@ -127,7 +128,7 @@ $("#scatterChart").kendoChart({
       format: "{0} Nm"
     }
   }]
-});
+});*/
 
 //linear guage
 //step 1
@@ -168,6 +169,11 @@ $("#linearGuage").kendoLinearGauge({
     size: 120 // the overall size of the side of the Barcode in pixels
 });
 
+ $("#BarCode").kendoBarcode({
+     value: "1234567",
+     type: "ean8"
+ });
+
  $("#radialGuage").kendoRadialGauge({
     scale: {
                             minorUnit: 5,
@@ -185,8 +191,9 @@ var window = $("#dvWindow");
 $("#liChart").bind("click", function(){ShowWindow("chartWrapper") ;} );
 $("#liScatterChart").bind("click", function(){ShowWindow("scatterChartWrapper") ;}   );
 $("#liLinearGuage").bind("click", function(){ShowWindow("linearGuageWrapper") ;} );
-$("#liMap").bind("click", function(){ShowWindow("mapWrapper") ;} );
-$("#liQRCode").bind("click", function(){$("#QRWrapper").show(); ;} );
+$("#liMap").bind("click", function () { $("#QRWrapper").hide(); $("#BarCodeWrapper").hide(); $("#mapWrapper").show(); });
+$("#liQRCode").bind("click", function () { $("#mapWrapper").hide(); $("#BarCodeWrapper").hide(); $("#QRWrapper").show();; });
+$("#liBarCode").bind("click", function () { $("#mapWrapper").hide();  $("#QRWrapper").hide(); $("#BarCodeWrapper").show();; });
 $("#liRadialGuage").bind("click", function(){ShowWindow("radialGuageWrapper") ;} );
 $("#liStockChart").bind("click", function(){ShowWindow("stockChartWrapper") ;} );
 $("#liPiChart").bind("click", function(){ShowWindow("piChartWrapper") ;} );
@@ -211,6 +218,7 @@ $("#scatterChartWrapper").hide();
 $("#linearGuageWrapper").hide();
 $("#mapWrapper").hide();
 $("#QRWrapper").hide();
+$("#BarCodeWrapper").hide();
 $("#radialGuageWrapper").hide();
 $("#stockChartWrapper").hide();
 
@@ -221,7 +229,8 @@ $("#donutChartWrapper").hide();
 function ShowWindow(divC) {
 
   debugger;
-   $("#QRWrapper").hide();
+  $("#QRWrapper").hide();
+  $("#BarCodeWrapper").hide();
   var wnd = $("#dvWindow");
   if(wnd.data("kendoWindow"))
   {
